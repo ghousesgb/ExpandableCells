@@ -17,7 +17,9 @@ class ViewController: UITableViewController {
                       CellModelData(isExpandable: true, names: ["Tendullkar", "Ashwin", "Kohli", "Rohit","Kumar"])]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never //.scrollableAxes
+        }
     }
 }
 
