@@ -10,5 +10,10 @@ import Foundation
 
 struct CellModelData {
     var isExpandable: Bool
-    var names: [String]
+    var names: [Contact]
+}
+
+struct Contact {
+    var name : String
+    var hasFavorite : Bool
 }

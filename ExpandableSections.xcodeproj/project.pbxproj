@@ -13,6 +13,7 @@
 		643CE2BC1FC29F86001A81A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643CE2BB1FC29F86001A81A2 /* Assets.xcassets */; };
 		643CE2BF1FC29F86001A81A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643CE2BD1FC29F86001A81A2 /* LaunchScreen.storyboard */; };
 		643CE2C71FC2A038001A81A2 /* CellModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643CE2C61FC2A038001A81A2 /* CellModelData.swift */; };
+		64B630BE1FCC4C53001D679F /* CustomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B630BD1FCC4C53001D679F /* CustomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		643CE2BE1FC29F86001A81A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		643CE2C01FC29F86001A81A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		643CE2C61FC2A038001A81A2 /* CellModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModelData.swift; sourceTree = "<group>"; };
+		64B630BD1FCC4C53001D679F /* CustomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				643CE2B41FC29F86001A81A2 /* AppDelegate.swift */,
 				643CE2B61FC29F86001A81A2 /* ViewController.swift */,
 				643CE2C61FC2A038001A81A2 /* CellModelData.swift */,
+				64B630BD1FCC4C53001D679F /* CustomeCell.swift */,
 				643CE2B81FC29F86001A81A2 /* Main.storyboard */,
 				643CE2BB1FC29F86001A81A2 /* Assets.xcassets */,
 				643CE2BD1FC29F86001A81A2 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64B630BE1FCC4C53001D679F /* CustomeCell.swift in Sources */,
 				643CE2B71FC29F86001A81A2 /* ViewController.swift in Sources */,
 				643CE2B51FC29F86001A81A2 /* AppDelegate.swift in Sources */,
 				643CE2C71FC2A038001A81A2 /* CellModelData.swift in Sources */,

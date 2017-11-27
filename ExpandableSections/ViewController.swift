@@ -10,16 +10,17 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    var categories = [CellModelData(isExpandable: true, names: ["Shaik Ghouse Basha", "Ghouse S", "Habeeb Banu", "Tippu", "Hafeez"]),
-                      CellModelData(isExpandable: true, names: ["Anil Kumble", "Ajith", "Andy Flower", "Ambrose"]),
-                      CellModelData(isExpandable: true, names: ["Basith", "Bumbrah", "Bell"]),
-                      CellModelData(isExpandable: true, names: ["Denish", "Dhoni"]),
-                      CellModelData(isExpandable: true, names: ["Tendullkar", "Ashwin", "Kohli", "Rohit","Kumar"])]
+    var categories = [CellModelData(isExpandable: true, names: [Contact(name: "Shaik Ghouse Basha", hasFavorite: false), Contact(name: " Ghouse S", hasFavorite: false), Contact(name: "Habeeb Banu", hasFavorite: false), Contact(name: "Tippu", hasFavorite: false), Contact(name: "Hafeez", hasFavorite: false)]),
+                      CellModelData(isExpandable: true,  names: [Contact(name: "Anil Kumble", hasFavorite: false), Contact(name: "Bashit", hasFavorite: false), Contact(name: "Brain Lara", hasFavorite: false), Contact(name: "Bishop", hasFavorite: false)]),
+                      CellModelData(isExpandable: true,  names: [Contact(name: "Dhoni MS", hasFavorite: false), Contact(name: "Dravid Rahul", hasFavorite: false), Contact(name: "Dinesh Karthik", hasFavorite: false)]),
+                      CellModelData(isExpandable: true,  names: [Contact(name: "Sachin Tendullkar", hasFavorite: false), Contact(name: " Gangully", hasFavorite: false), Contact(name: "Kapil Dev", hasFavorite: false), Contact(name: "Rahane", hasFavorite: false), Contact(name: "Rohit", hasFavorite: false)]),
+                      CellModelData(isExpandable: true,  names: [Contact(name: "Virat Kohil", hasFavorite: false), Contact(name: "Kafi", hasFavorite: false), Contact(name: "Yuvaraj", hasFavorite: false), Contact(name: "Jadeja", hasFavorite: false), Contact(name: "Aswin Kumar", hasFavorite: false)])]
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never //.scrollableAxes
         }
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -34,9 +35,12 @@ extension ViewController {
         return categories[section].names.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = categories[indexPath.section].names[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomeCell
+        cell.textLabel?.text = categories[indexPath.section].names[indexPath.row].name
+        let hasFavStatus = categories[(indexPath.section)].names[(indexPath.row)].hasFavorite
+        cell.accessoryView?.tintColor = hasFavStatus ? UIColor.red : UIColor.gray
+        cell.link = self
+        return cell
     }
   
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -48,7 +52,7 @@ extension ViewController {
         
         let caption = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         caption.textColor = .white
-        caption.text = "  " + categories[section].names[0]
+        caption.text = "    " + categories[section].names[0].name
         
         let button = UIButton(type: .system)
         button.frame = CGRect(x: tableView.frame.size.width-60, y: 0, width: 60, height: 40)
@@ -65,6 +69,12 @@ extension ViewController {
 }
 
 extension ViewController {
+    func setUnSetFavorite(cell : UITableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
+        let hasFavStatus = categories[(indexPath?.section)!].names[(indexPath?.row)!].hasFavorite
+        categories[(indexPath?.section)!].names[(indexPath?.row)!].hasFavorite = !hasFavStatus
+        tableView.reloadRows(at: [indexPath!], with: .fade)
+    }
     @objc func handleExpandClose(button: UIButton) {
         let section = button.tag
         var indexPaths = [IndexPath]()
